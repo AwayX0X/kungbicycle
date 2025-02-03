@@ -1,68 +1,92 @@
-/* ตั้งค่าพื้นฐานสำหรับการแสดงผล */
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f4f4f9;
+* {
     margin: 0;
     padding: 0;
-    color: #333;
+    box-sizing: border-box;
 }
 
-/* กำหนดขนาดและการจัดการให้กับ container */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #F0F4F8; /* สีพื้นหลังอ่อน */
+    color: #333333; /* ข้อความสีเข้มเพื่อให้อ่านง่าย */
+    padding: 20px;
+    line-height: 1.6;
+    background-image: url('https://cdn.discordapp.com/attachments/1334512680009994301/1335969441074118709/pngtree-trees-in-a-pink-scene-image_2676099.jpg?ex=67a219ff&is=67a0c87f&hm=3eb59a06de550365d13cce91755c0b33be464a2b0e3c4fbf03b42b51dfdb7871&'); /* คุณสามารถใช้ภาพพื้นหลังที่มีความเบา เช่น ลายเมฆ หรือภาพที่ไม่รก */
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+}
+
 .container {
-    width: 85%;
+    max-width: 1200px;
     margin: 0 auto;
-    padding-top: 30px;
-    text-align: center;
+    padding: 20px;
+    background: linear-gradient(0.25turn, #3f87a6, #ebf8e1, #f69d3c);
+    border-radius: 10px; /* ขอบโค้ง */
+	-webkit-box-shadow: inset 1px 7px 39px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: inset 1px 7px 39px 0px rgba(0,0,0,0.75);
+	box-shadow: inset 1px 7px 39px 0px rgba(0,0,0,0.75);
 }
 
-/* การตั้งค่าข้อความหัวเรื่อง */
+
 h1 {
-    color: #2C3E50;
-    font-size: 2.5em;
-    margin-top: 20px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-weight: 600;
+    text-align: center;
+    margin-bottom: 20px;
+    background-color: #fdf5e6; /* สีพื้นหลังเป็นสีส้ม */
+    color: black; /* เปลี่ยนสีข้อความให้เป็นสีขาว */
+    padding: 15px; /* เพิ่มระยะห่างในตัวอักษร */
+    border-radius: 10px; /* ทำให้ขอบมุมโค้ง */
+	-webkit-box-shadow: inset 1px 7px 39px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: inset 1px 7px 39px 0px rgba(0,0,0,0.75);
+	box-shadow: inset 1px 7px 39px 0px rgba(0,0,0,0.75);
 }
 
-/* การตั้งค่าแท็บ */
+
 .tabs {
-    margin-top: 30px;
-    display: flex;
-    justify-content: center;
-    gap: 15px;
+    text-align: center;
+    margin-bottom: 20px;
 }
 
 .tab-button {
-    padding: 12px 30px;
-    font-size: 18px;
-    background-color: #3498db;
+    background-color: #007BFF; /* สีพื้นหลังของปุ่มแท็บ */
     color: white;
+    padding: 12px 24px;
+    margin: 0 10px;
     border: none;
-    border-radius: 30px;
+    border-radius: 30px; /* มุมกลม */
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-size: 1.1rem; /* ขนาดฟอนต์ใหญ่ขึ้น */
+    transition: background-color 0.3s ease, transform 0.2s ease, color 0.3s ease;
 }
 
+/* เมื่อปุ่มแท็บถูกเลือก (active) */
 .tab-button.active {
-    background-color: #2980b9;
-    transform: translateY(-3px);
+    background-color: #FF6347; /* สีส้มตัดกับฟ้าเมื่อเลือก */
+    color: #fff; /* สีตัวอักษรขาวเพื่อให้ดูตัดกัน */
+    transform: scale(1.1); /* ขยายขนาดเมื่อเลือก */
 }
 
+/* เพิ่มเอฟเฟกต์เมื่อวางเมาส์ (hover) */
 .tab-button:hover {
-    background-color: #1abc9c;
-    transform: translateY(-3px);
+    background-color: #0056b3; /* เปลี่ยนสีเมื่อวางเมาส์ */
+    transform: scale(1.05); /* ขยายขนาดเล็กน้อยเมื่อวางเมาส์ */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* เพิ่มเงาให้ดูเด่นขึ้น */
 }
 
-/* ซ่อนเนื้อหาทั้งหมด และแสดงเนื้อหาของแท็บที่เลือก */
+
+
 .tab-content {
     display: none;
-    margin-top: 30px;
 }
 
 .tab-content.active {
     display: block;
+}
+
+.products {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
 }
 
 /* การตั้งค่าสินค้า */
@@ -100,36 +124,25 @@ h1 {
     margin: 15px 0;
 }
 
-.price {
-    color: #e74c3c;
-    font-size: 20px;
-    font-weight: bold;
-}
+
 
 .price::before {
     content: "฿";
 }
 
-/* สไตล์สำหรับช่องทางการติดต่อ */
+
+.product .price {
+    color: #28a745; /* สีเขียวสดเพื่อให้ราคาเด่นขึ้น */
+    font-size: 1.3rem; /* ขนาดฟอนต์ใหญ่ขึ้น */
+    font-weight: bold; /* ตัวอักษรหนา */
+    text-transform: uppercase;
+    letter-spacing: 1px; /* เพิ่มระยะห่างระหว่างตัวอักษร */
+}
+
+
 .contact {
-    margin-top: 50px;
-    padding: 30px;
-    background-color: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-    text-align: left;
-}
-
-.contact h2 {
-    color: #2C3E50;
-    font-size: 2em;
-    font-weight: 600;
-    margin-bottom: 20px;
-}
-
-.contact p {
-    font-size: 18px;
-    line-height: 1.6;
+    margin-top: 40px;
+    text-align: center;
 }
 
 .contact ul {
@@ -138,55 +151,156 @@ h1 {
 }
 
 .contact li {
-    font-size: 16px;
     margin-bottom: 10px;
+    font-size: 1.1rem;
+    color: #555;
 }
 
-/* สไตล์สำหรับ Modal */
+.contact li strong {
+    color: #007BFF;
+}
+
 .modal {
-    display: none; /* ซ่อน modal โดยเริ่มต้น */
+    display: none;
     position: fixed;
-    z-index: 1; /* อยู่ด้านบนสุด */
+    z-index: 1;
+    padding-top: 100px;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgb(0,0,0); /* ใส่พื้นหลังมืด */
-    background-color: rgba(0,0,0,0.9); /* โปร่งแสง */
-    padding-top: 60px;
+    background-color: rgba(0, 0, 0, 0.7);
+    text-align: center;
 }
 
 .modal-content {
-    margin: auto;
-    display: block;
     width: 80%;
     max-width: 700px;
-    border-radius: 15px;
+    border-radius: 8px;
 }
 
-#caption {
-    margin: 15px;
+/* Loading Screen (โปร่งแสง) */
+#loading-screen {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2); /* สีขาวโปร่งแสง */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    backdrop-filter: blur(8px); /* ทำให้ฉากหลังเบลอ */
+}
+
+/* แอนิเมชันวงกลมหมุน */
+.loader {
+    border: 6px solid rgba(255, 255, 255, 0.3);
+    border-top: 6px solid #007BFF;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
     text-align: center;
-    color: #fff;
+}
+
+.modal-content {
+    width: 80%;
+    max-width: 600px;
+}
+
+#prev, #next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
     font-size: 18px;
+    border-radius: 5px;
+}
+
+#prev { left: 10%; }
+#next { right: 10%; }
+
+
+#prev:hover, #next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+
+#caption {
+    text-align: center;
+    color: white;
+    font-size: 18px;
+    padding: 5px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    display: block;
+    width: auto;
 }
 
 .close {
-    position: absolute;
-    top: 15px;
-    right: 35px;
-    color: #f1f1f1;
-    font-size: 40px;
+    color: #fff;
+    font-size: 30px;
     font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 25px;
     cursor: pointer;
 }
 
-.close:hover,
-.close:focus {
-    color: #bbb;
-    text-decoration: none;
+
+
+
+.select-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.select-container label {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: green;
+	right: 1;
+}
+
+
+select {
+    background: rgba(255, 255, 255, 0.5);
+    border: none;
+    padding: 12px 20px;
+    border-radius: 10px;
+    color: blue;
+    font-size: 1rem;
     cursor: pointer;
+    outline: none;
+    transition: background 0.3s ease;
+}
+
+select:hover, select:focus {
+    background: rgba(255, 255, 255, 0.3);
 }
 
 /* เพิ่ม Media Query สำหรับการจัดเรียงแท็บในมือถือ */
