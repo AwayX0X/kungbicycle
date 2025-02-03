@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ร้านจักรยาน</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>ร้านจักรยานของเรา</h1>
+
+    <!-- หมวดหมู่สินค้าเป็นแท็บ -->
+    <div class="tabs">
+        <button class="tab-button active" onclick="openTab('mountain-bikes')">จักรยานเสือภูเขา</button>
+        <button class="tab-button" onclick="openTab('road-bikes')">จักรยานเสือหมอบ</button>
+        <button class="tab-button" onclick="openTab('electric-bikes')">จักรยานไฟฟ้า</button>
+    </div>
+
+    <!-- แสดงสินค้าภายในแท็บต่าง ๆ -->
+    <div id="mountain-bikes" class="tab-content active">
+        <h3>จักรยานเด็ก</h3>
+        <div class="product">
+            <img src="https://cdn.discordapp.com/attachments/1334512680009994301/1335944479412064398/t2.png?ex=67a202c0&is=67a0b140&hm=85f298aca31c93b161e3e379a510966fc18fc9f2dc6584fb08ca5e2f54f28c6f&" alt="จักรยานเสือภูเขา">
+            <h4>จักรยานเด็ก รุ่น X</h4>
+            <p class="price">5,500</p>
+        </div>
+        <div class="product">
+            <img src="https://cdn.discordapp.com/attachments/1334512680009994301/1335944067384741899/t1.png?ex=67a2025e&is=67a0b0de&hm=631b9d47b39d223b36b5d9a8410f143427a170b3c67d75af23d3526fe23b7036&" alt="จักรยานเสือภูเขา">
+            <h4>จักรยานเด็ก รุ่น Y</h4>
+            <p class="price">6,000</p>
+        </div>
+    </div>
+
+    <div id="road-bikes" class="tab-content">
+        <h3>จักรยานเสือหมอบ</h3>
+        <div class="product">
+            <img src="https://via.placeholder.com/300" alt="จักรยานเสือหมอบ">
+            <h4>จักรยานเสือหมอบ รุ่น A</h4>
+            <p class="price">7,200</p>
+        </div>
+        <div class="product">
+            <img src="https://via.placeholder.com/300" alt="จักรยานเสือหมอบ">
+            <h4>จักรยานเสือหมอบ รุ่น B</h4>
+            <p class="price">8,500</p>
+        </div>
+    </div>
+
+    <div id="electric-bikes" class="tab-content">
+        <h3>จักรยานไฟฟ้า</h3>
+        <div class="product">
+            <img src="https://via.placeholder.com/300" alt="จักรยานไฟฟ้า">
+            <h4>จักรยานไฟฟ้า รุ่น E</h4>
+            <p class="price">15,000</p>
+        </div>
+        <div class="product">
+            <img src="https://via.placeholder.com/300" alt="จักรยานไฟฟ้า">
+            <h4>จักรยานไฟฟ้า รุ่น F</h4>
+            <p class="price">17,500</p>
+        </div>
+    </div>
+
+    <!-- ช่องทางการติดต่อ -->
+    <div class="contact">
+        <h2>ช่องทางการติดต่อ</h2>
+        <p>หากท่านมีคำถามหรือต้องการสั่งซื้อสินค้า สามารถติดต่อเราผ่านช่องทางดังนี้:</p>
+        <ul>
+            <li><strong>โทรศัพท์:</strong> xxx-xxx-xxxx</li>
+            <li><strong>อีเมล:</strong> test@email.com</li>
+            <li><strong>ที่อยู่:</strong> 123 ถนนจักรยาน, กรุงเทพฯ, ประเทศไทย</li>
+        </ul>
+    </div>
+</div>
+
+<script>
+    // ฟังก์ชันเปิดแท็บ
+    function openTab(tabName) {
+        // ซ่อนเนื้อหาทั้งหมด
+        var contents = document.querySelectorAll('.tab-content');
+        contents.forEach(function(content) {
+            content.classList.remove('active');
+        });
+
+        // แสดงแท็บที่เลือก
+        var activeTab = document.getElementById(tabName);
+        activeTab.classList.add('active');
+
+        // เปลี่ยนสไตล์ปุ่มแท็บ
+        var buttons = document.querySelectorAll('.tab-button');
+        buttons.forEach(function(button) {
+            button.classList.remove('active');
+        });
+        var activeButton = document.querySelector('button[onclick="openTab(\'' + tabName + '\')"]');
+        activeButton.classList.add('active');
+    }
+</script>
+
+</body>
+</html>
