@@ -22,6 +22,9 @@ h1 {
 /* การตั้งค่าแท็บ */
 .tabs {
     margin-top: 30px;
+    display: flex;
+    justify-content: center; /* จัดปุ่มให้ตรงกลาง */
+    gap: 10px;
 }
 
 .tab-button {
@@ -157,4 +160,36 @@ h1 {
     color: #bbb;
     text-decoration: none;
     cursor: pointer;
+}
+
+/* เพิ่ม Media Query สำหรับการจัดเรียงแท็บในมือถือ */
+@media screen and (max-width: 768px) {
+    .tabs {
+        flex-direction: column; /* ทำให้ปุ่มแท็บเรียงในแนวตั้ง */
+        align-items: center; /* จัดปุ่มให้ตรงกลาง */
+    }
+
+    .tab-button {
+        width: 100%; /* ปรับปุ่มแท็บให้เต็มความกว้าง */
+        margin: 5px 0;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    h1 {
+        font-size: 24px;
+    }
+
+    .tab-button {
+        font-size: 14px;
+        padding: 8px 12px;
+    }
+
+    .price {
+        font-size: 16px;
+    }
+
+    .product h4 {
+        font-size: 16px;
+    }
 }
